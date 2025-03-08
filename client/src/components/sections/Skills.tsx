@@ -3,12 +3,12 @@ import SkillIcon from "@/components/SkillIcon";
 
 const skills = [
   { name: "python", label: "Python" },
-  { name: "javascript", label: "JavaScript" },
-  { name: "react", label: "React" },
   { name: "langchain", label: "Langchain" },
-  { name: "pytorch", label: "PyTorch" },
   { name: "openai", label: "OpenAI" },
   { name: "github", label: "GitHub" },
+  { name: "tensorflow", label: "TensorFlow" },
+  { name: "C programming", label: "C Programming" },
+  { name: "altium", label: "Altium" },
 ] as const;
 
 export default function Skills() {
@@ -41,11 +41,19 @@ export default function Skills() {
             </h3>
             <ul className="list-disc list-inside space-y-3 text-[#E4E4E4]/90">
               <li>RAG (Retrieval Augmented Generation)</li>
-              <li>LoRA (Low-Rank Adaptation)</li>
-              <li>AI Agents Development</li>
               <li>LLM Fine-tuning</li>
               <li>Prompt Engineering</li>
               <li>Vector Databases</li>
+              </ul>
+              <br></br>
+              <h3 className="text-2xl font-bold mb-6 text-[#FF157E]">
+                Skillsets developed oustide of LLM Engineering
+              </h3>
+            
+            <ul className="list-disc list-inside space-y-3 text-[#E4E4E4]/90">
+              <li>Arduino Programming </li>
+              <li>Digital Electronics</li>
+              <li>Decent competancy with STM32 programming</li>
             </ul>
           </div>
         </motion.div>

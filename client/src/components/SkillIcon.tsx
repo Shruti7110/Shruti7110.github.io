@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { SiPython, SiJavascript, SiGithub, SiPytorch, SiOpenai, SiReact } from "react-icons/si";
-import { Database } from "lucide-react"; // Using a database icon for Langchain
+import { SiPython, SiJavascript, SiGithub, SiOpenai, SiC, SiTensorflow } from "react-icons/si";
+import { Database, Cpu } from "lucide-react"; // Using a database icon for Langchain and Cpu for Altium
 import { cn } from "@/lib/utils";
 
 const iconMap = {
@@ -8,9 +8,10 @@ const iconMap = {
   javascript: SiJavascript,
   github: SiGithub,
   langchain: Database, // Using Lucide's Database icon as a replacement
-  pytorch: SiPytorch,
   openai: SiOpenai,
-  react: SiReact, // Added React icon
+  "C programming": SiC,
+  tensorflow: SiTensorflow,
+  altium: Cpu, // Using Lucide's Cpu icon for Altium
 } as const;
 
 interface SkillIconProps {

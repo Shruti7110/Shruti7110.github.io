@@ -23,19 +23,21 @@ export default function Home() {
             <span className="text-[#18F0FF]">Hey,</span> I'm Shruti
           </h1>
           <p className="text-xl text-[#E4E4E4]/80 mb-8">
-            An Electrical Engineer turned AI enthusiast. Why? Having myself made the circuits work, decided to let AI do the work for me. If laziness is the mother of invention, I’m basically an innovator.
+            An Electrical Engineer turned AI enthusiast. Why? After making
+            circuits work, I figured it was time to let AI do the work for me.
+            If laziness is the mother of invention, I’m basically an innovator.
           </p>
           <div className="flex gap-4">
-            <Button 
+            <Button
               onClick={() => scrollToSection("projects")}
               className="bg-[#18F0FF] text-[#0A0F24] hover:bg-[#18F0FF]/90"
             >
               View Projects
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button 
+            <Button
               onClick={() => scrollToSection("about")}
-              variant="outline" 
+              variant="outline"
               className="border-[#18F0FF] text-[#18F0FF] hover:bg-[#18F0FF]/10"
             >
               About Me
