@@ -58,7 +58,7 @@ export default function Projects() {
                     >
                       <CardContent className="p-6 relative">
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xl font-semibold text-[#18F0FF] group-hover:text-[#18F0FF]
+                          <h3 className="text-xl font-semibold text-[#5D3FD3] group-hover:text-[#18F0FF]
                             drop-shadow-[0_0_3px_rgba(24,240,255,0.3)]">
                             {project.name}
                           </h3>

@@ -35,7 +35,7 @@ export default function Navigation() {
     { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
-    { id: "resume", label: "Resume" },  // Add Resume link
+    { id: "connect", label: "Connect" },
   ];
 
   return (

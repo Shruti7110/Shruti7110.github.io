@@ -21,7 +21,7 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-8 text-[#18F0FF]">Skills</h2>
+          <h2 className="text-4xl font-bold mb-8 text-[#18F0FF]">Tools & Tech I Use</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skills.map((skill) => (
@@ -36,7 +36,7 @@ export default function Skills() {
           </div>
 
           <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6 text-[#FF157E]">
+            <h3 className="text-1xl font-bold mb-6 text-[#FF157E]">
               Specialized in LLM Engineering
             </h3>
             <ul className="list-disc list-inside space-y-3 text-[#E4E4E4]/90">
@@ -44,15 +44,19 @@ export default function Skills() {
               <li>LLM Fine-tuning</li>
               <li>Prompt Engineering</li>
               <li>Vector Databases</li>
+              
               </ul>
               <br></br>
-              <h3 className="text-2xl font-bold mb-6 text-[#FF157E]">
+              <h3 className="text-1xl font-bold mb-6 text-[#FF157E]">
                 Skillsets developed oustide of LLM Engineering
               </h3>
             
             <ul className="list-disc list-inside space-y-3 text-[#E4E4E4]/90">
+              <li>Machine Learning & Predictive Maintenance                   </li>
               <li>Arduino Programming </li>
+              <li>Embedded Systems</li>              
               <li>Digital Electronics</li>
+              <li>Web Application Development and API Integration</li>
               <li>Decent competancy with STM32 programming</li>
             </ul>
           </div>

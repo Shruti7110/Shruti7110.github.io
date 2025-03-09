@@ -6,11 +6,11 @@ import Home from "@/components/sections/Home";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
-import Resume from "@/components/sections/Resume";
+import Connect from "@/components/sections/Connect"; // Import the new Connect component
 
 function Layout() {
   return (
-    <div className="min-h-screen bg-[#0A0F24] text-[#E4E4E4]">
+    <div className="min-h-screen bg-[#0A0F24] text-[#E4E4E4]"> {/* Applied new color palette */}
       <Navigation />
       <main className="snap-y snap-mandatory">
         <section id="home" className="snap-start">
@@ -25,8 +25,8 @@ function Layout() {
         <section id="skills" className="snap-start">
           <Skills />
         </section>
-        <section id="resume" className="snap-start">
-          <Resume />
+        <section id="connect" className="snap-start"> {/* Updated section ID */}
+          <Connect />
         </section>
       </main>
     </div>
