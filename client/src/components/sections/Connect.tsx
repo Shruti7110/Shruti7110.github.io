@@ -26,7 +26,7 @@ export default function Connect() {
                     📍 Bangalore and Pune, India
                   </span>
                   <span className="text-lg text-black">
-                    📧 shrutipawar@gmail.com{" "}
+                    📧 shruti.pawar0713@gmail.com{" "}
                   </span>
                   <div className="flex items-center text-black">
                     <span className="mr-2">🔗</span>
