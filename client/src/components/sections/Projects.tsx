@@ -26,9 +26,12 @@ const projects = [
     repoUrl: "https://github.com/Shruti7110/python-coding-using-Qwen",
   },
   {
-    name: "Electrical Schematic RAG",
-    repoUrl: "#",
-    inProgress: true,
+    name: "Brain Tumor Detection",
+    repoUrl: "https://github.com/Shruti7110/Brain-Tumor-Detection",
+  },
+  {
+    name: "PCB Crack Detection",
+    repoUrl: "https://github.com/Shruti7110/PCB-Crack-Detection",
   },
 ];
 
