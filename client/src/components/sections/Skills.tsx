@@ -3,10 +3,12 @@ import SkillIcon from "@/components/SkillIcon";
 
 const skills = [
   { name: "python", label: "Python" },
-  { name: "langchain", label: "Langchain" },
   { name: "openai", label: "OpenAI" },
+  { name: "opencv", label: "OpenCV" },
   { name: "github", label: "GitHub" },
+  { name: "langchain", label: "Langchain" },
   { name: "tensorflow", label: "TensorFlow" },
+  { name: "yolo", label: "YOLO" },
   { name: "C programming", label: "C Programming" },
   { name: "altium", label: "Altium" },
 ] as const;
@@ -52,8 +54,9 @@ export default function Skills() {
               </h3>
             
             <ul className="list-disc list-inside space-y-3 text-[#E4E4E4]/90">
-              <li>Machine Learning & Predictive Maintenance                   </li>
-              <li>Arduino Programming </li>
+              <li>Computer Vision Engineering</li>
+              <li>Machine Learning & Predictive Maintenance</li>
+              <li>Arduino Programming</li>
               <li>Embedded Systems</li>              
               <li>Digital Electronics</li>
               <li>Web Application Development and API Integration</li>
