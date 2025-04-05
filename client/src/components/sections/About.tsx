@@ -35,7 +35,10 @@ export default function About() {
                 <p className="text-lg leading-relaxed text-[#E4E4E4]/90 mt-4">
                   With experience in RAG, LoRA, and AI Agents, I've worked on
                   various projects that demonstrate the practical applications
-                  of these technologies in solving real-world problems.
+                  of these technologies in solving real-world problems. My work
+                  also extends into Computer Vision, where I've developed solutions
+                  for Brain Tumor Detection and PCB Crack Detection using advanced
+                  techniques like YOLO and OpenCV.
                 </p>
 
                 <p className="text-lg leading-relaxed text-[#E4E4E4]/90 mt-4">
