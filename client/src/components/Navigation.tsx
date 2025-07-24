@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import AboutDialog from "@/components/sections/About";
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
@@ -30,11 +31,12 @@ export default function Navigation() {
     }
   };
 
-  const links = [
+  const navItems = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
+    { id: "chatbot", label: "Ask AI" },
+    { id: "reviews", label: "Reviews" },
     { id: "connect", label: "Connect" },
   ];
 
@@ -44,13 +46,14 @@ export default function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <button 
             onClick={() => scrollToSection("home")}
-            className="text-[#18F0FF] text-xl font-bold"
+            className="flex items-center gap-2 text-[#18F0FF] text-xl font-bold hover:scale-105 transition-transform"
           >
+            <img src="/logo.svg" alt="Shruti Pawar" className="w-8 h-8" />
             Portfolio
           </button>
 
           <div className="flex gap-6">
-            {links.map((link) => (
+            {navItems.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
@@ -62,6 +65,7 @@ export default function Navigation() {
                 {link.label}
               </button>
             ))}
+            <AboutDialog />
           </div>
         </div>
       </div>

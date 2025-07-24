@@ -1,0 +1,93 @@
+
+My name is Shruti. I'm a engineer with love for AI and automation. I'm from India. I'm currently a freelancer
+I'm a big foodi and love to explore different cuisience. I love to explore different cultures and traditions. 
+
+about my career: 
+I have done instrumentation and controls engineering. after which i joined Baxter as an electrical engineer at Baxter Healthcare Solutions where i was a part of infusion systems working with infusion pumps. 
+I help build multiple projects like UI PCBA redesign for obselte components as a sustainance activity, Hardware in loop to help software test case simulations.
+build projects to help resolve field issues- Pump Motor Anamoly Predictive Maintenance, Sensor Dashboard to help visualize the error quicker.  
+
+Skills - 
+Generative AI:			LLMs, multi-shot prompting, RAG, Fine-tuning
+Machine Learning:	ML models, TensorFlow, PyTorch, OpenCV, MLOps, Computer Vision
+Deep Learning:			Transformer models, CNN, RNN, Tensorflow pipelines
+Programming Languages:	Python, C
+Embedded:				Digital electronics and circuit analysis
+Data and Automation:		Power BI, MATLAB, Anaconda, Excel, Git
+web application buildup: html, css, java
+Supabase database setup and use
+tools: Jira, Teamcenter, altium, vscode, ALM lifecycle management
+
+Projects done over the years - 
+
+• On-board bogie monitoring system
+An IoT based system to monitor health of bearing and vibrations on the bogie frame powered by a self-energy harvesting system where sensor data can be read on Thingspeak platform.
+Using sensor fusion (load-cell, thermocouple, ADXL) and ESP8266 as microcontroller with its wifi capabilities the hardware integration was done.  
+Software code was written on arduino IDE
+
+• Automation of Shirodhara Process (On-going)
+A microcontroller-based system for fully automated Shirodhara Process which would require no human intervention.
+Hardware - sensors (thermocouple, level sensor), pumps and ardiuno as microcontroller
+
+• Pump Indicator 
+Created a device to display the pump's operational status from anywhere using proximity sensor which is mounted in front of the propeller of the pump.
+Hardware - optical sensor and arduino
+
+•  Crimp-pull Tensometer
+Arduino Coding and electrical assembly of a device which checks the tensile force that the crimped wire can withstand.
+hardware - loadcell and arduino
+
+• Hardware in loop 
+System made to give false sensor values to help simulate for error conditions. 
+Task done - Schematic design and testing. Integration with the existing product. 
+Hardware used arduino ble sense as a microcontroller, Switches
+software - arduino coding using IDE by studing the patterns and sensor values for different case scenarios and accordingly giving the false values.
+
+
+• Motor Anamoly Predictive Maintenance
+Detecting motor anomalies by analyzing real-time accelerometer and gyroscope data.
+Trained a neural network model with both normal and abnormal motor condition data, further converted into a TensorFlow Lite model for deployment on Arduino devices.
+github link - https://github.com/Shruti7110/Motor-Predictive-Maintanence 
+Hardware - motor, arduino ble sense
+
+• Sensor Dashboard
+Problem statement - Dashboard to be made to study the sensor patterns for different end case scenios of a product. 
+work done - taking sensor data over SSH from the product and saving the data locally for future debugs as well as projecting real time on the dashboard
+
+• Brain Tumor detection using computer vision
+Developed a brain tumor detection system utilizing YOLOv10, a cutting-edge real-time object detection model,to identify tumors in MRI scans. 
+Integrated a curated MRI dataset via Roboflow and implemented a user-friendly interface using Gradio for seamless deployment.
+Employed transfer learning with COCO-pretrained weights to enhance model accuracy.
+Data - Kaggle
+github link - https://github.com/Shruti7110/Brain-Tumor-Detection
+
+• Event Planner RAG
+AI-powered chatbot designed to assist Event planner using RAG model. 
+It integrates LangChain, OpenAI GPT, and ChromaDB to provide intelligent recommendations based on user queries. 
+Users can further train the model to better understand specific data and edge use cases, increasing accuracy by 25%
+github link - https://github.com/Shruti7110/Event-Planner-RAG
+
+• Cover letter maker using AI orchestration framework
+This project automates the creation of personalized cover letters using AI orchestration. 
+By taking inputs such as job role, company name, and resume highlights, it dynamically crafts a context-aware cover letter tailored to the specific job. 
+The system leverages prompt engineering to guide a language model (like GPT) and ensures the generated letter aligns with the user's professional tone, skills, 
+and job requirements — reducing manual effort while improving relevance and customization. 
+github link - https://github.com/Shruti7110/Cover-Letter-Maker
+
+• Automated Product Manual maker - Freelancing task 
+problem statement - Since a project has DAP, SOP, HMI details, electrical design, BOM, etc made by differet teams.
+A person had to manually take all the details to make a manual.
+To solve this issue this tools takes in a base company template and add specific details in the write placeholders.
+
+• Product BOM merging tool - Freelancing task 
+Problem statement - The company had multiple BOM created for an aseembly line of varied products. 
+the purchase team had to invidually order for parts based on each bom. but sometimes a same part would be repeated on 2 products so it would be easier them to order 2 only if they knew before. 
+This tools take in all the BOMs checks for common product enteries and gives the final count in the excel for all the products. enable end user to look at single BOM for entire assembly line.
+
+• Project Tracking Website - Freelancing task 
+Web application to track the projects within in the organization.
+Features
+    1. 2 factor verification so that only the Admin can edit the project details.
+    2. Timeline viewer so that based on task completions the project status is viewed.
+    3. Emailing feature when task is near due date.
+    4. On-time delivery rate tracker to understand the department progress.

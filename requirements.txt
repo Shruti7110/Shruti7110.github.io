@@ -1,0 +1,14 @@
+
+python-dotenv
+openai
+pypdf
+pydantic
+gradio
+openai
+pydantic
+pypdf
+python-dotenv
+openai
+pydantic
+pypdf
+python-dotenv

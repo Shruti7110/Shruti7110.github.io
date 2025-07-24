@@ -1,43 +1,57 @@
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./lib/queryClient";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import Navigation from "@/components/Navigation";
 import Home from "@/components/sections/Home";
 import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
-import Connect from "@/components/sections/Connect"; // Import the new Connect component
+import Projects from "@/components/sections/Projects";
+import ChatBot from "@/components/sections/ChatBot";
+import Reviews from "@/components/sections/Reviews";
+import Connect from "@/components/sections/Connect";
+import { useEffect } from "react";
+import "./index.css";
 
-function Layout() {
-  return (
-    <div className="min-h-screen bg-[#0A0F24] text-[#E4E4E4]"> {/* Applied new color palette */}
-      <Navigation />
-      <main className="snap-y snap-mandatory">
-        <section id="home" className="snap-start">
-          <Home />
-        </section>
-        <section id="about" className="snap-start">
-          <About />
-        </section>
-        <section id="projects" className="snap-start">
-          <Projects />
-        </section>
-        <section id="skills" className="snap-start">
-          <Skills />
-        </section>
-        <section id="connect" className="snap-start"> {/* Updated section ID */}
-          <Connect />
-        </section>
-      </main>
-    </div>
-  );
-}
+const queryClient = new QueryClient();
+
+const Layout = ({ children }: { children: React.ReactNode }) => (
+  <div className="min-h-screen bg-gradient-to-br from-[#0A0F24] via-[#1A1F3A] to-[#0A0F24]">
+    <Navigation />
+    <main className="relative">{children}</main>
+  </div>
+);
 
 function App() {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <Layout />
-      <Toaster />
+      <BrowserRouter>
+        <Layout>
+          <section id="home">
+            <Home />
+          </section>
+          <section id="projects">
+            <Projects />
+          </section>
+          <section id="skills">
+            <Skills />
+          </section>
+          <section id="chatbot">
+            <ChatBot />
+          </section>
+          <section id="reviews">
+            <Reviews />
+          </section>
+          <section id="connect">
+            <Connect />
+          </section>
+        </Layout>
+        <Toaster />
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
