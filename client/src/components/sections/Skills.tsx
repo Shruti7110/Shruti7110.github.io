@@ -63,7 +63,7 @@ export default function Skills() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#18F0FF]/20 to-[#FF157E]/20 rounded-3xl blur-2xl"></div>
                     <img 
-                      src="/src/assets/portfolio-hero.png" 
+                      src="/portfolio-hero.png" 
                       alt="Shruti Pawar - AI Engineer" 
                       className="relative rounded-3xl shadow-2xl max-w-sm w-full h-auto border border-[#18F0FF]/30"
                     />
