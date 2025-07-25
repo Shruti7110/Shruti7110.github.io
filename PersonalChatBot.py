@@ -20,9 +20,19 @@ evaluator_system_prompt = ""
 def gemini_setup():
     global gemini, model_name
     load_dotenv(override=True)
+
+    # Try both environment variable names for compatibility
+    api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("VITE_GOOGLE_API_KEY")
+
+    if not api_key:
+        raise ValueError(
+            "Google API key not found. Please set GOOGLE_API_KEY environment variable."
+        )
+
     gemini = OpenAI(
-        api_key=os.getenv("GOOGLE_API_KEY"),
-        base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
+        api_key=api_key,
+        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    )
     model_name = "gemini-2.0-flash"
     print("Gemini setup complete", file=sys.stderr)
 
@@ -88,7 +98,9 @@ def defining_prompts():
     The Agent has been instructed to be professional and engaging, as if talking to a potential client or future employer who came across the website. \
     The Agent has been provided with context on {name} in the form of their summary and LinkedIn details. Here's the information:"
 
-    evaluator_system_prompt += f"\n\n## Summary:\n{summary}\n\n## LinkedIn Profile:\n{linkedin}\n\n"
+    evaluator_system_prompt += (
+        f"\n\n## Summary:\n{summary}\n\n## LinkedIn Profile:\n{linkedin}\n\n"
+    )
     evaluator_system_prompt += f"With this context, please evaluate the latest response, replying with whether the response is acceptable and your feedback."
 
     print("Prompts added", file=sys.stderr)
@@ -100,7 +112,9 @@ class Evaluation(BaseModel):
 
 
 def evaluator_user_prompt(reply, message, history):
-    user_prompt = f"Here's the conversation between the User and the Agent: \n\n{history}\n\n"
+    user_prompt = (
+        f"Here's the conversation between the User and the Agent: \n\n{history}\n\n"
+    )
     user_prompt += f"Here's the latest message from the User: \n\n{message}\n\n"
     user_prompt += f"Here's the latest response from the Agent: \n\n{reply}\n\n"
     user_prompt += "Please evaluate the response, replying with whether it is acceptable and your feedback."
@@ -108,34 +122,29 @@ def evaluator_user_prompt(reply, message, history):
 
 
 def rerun(reply, message, history, feedback):
-    updated_system_prompt = system_prompt + "\n\n## Previous answer rejected\nYou just tried to reply, but the quality control rejected your reply\n"
+    updated_system_prompt = (
+        system_prompt
+        + "\n\n## Previous answer rejected\nYou just tried to reply, but the quality control rejected your reply\n"
+    )
     updated_system_prompt += f"## Your attempted answer:\n{reply}\n\n"
     updated_system_prompt += f"## Reason for rejection:\n{feedback}\n\n"
-    messages = [{
-        "role": "system",
-        "content": updated_system_prompt
-    }] + history + [{
-        "role": "user",
-        "content": message
-    }]
-    response = gemini.chat.completions.create(model=model_name,
-                                              messages=messages)
+    messages = (
+        [{"role": "system", "content": updated_system_prompt}]
+        + history
+        + [{"role": "user", "content": message}]
+    )
+    response = gemini.chat.completions.create(model=model_name, messages=messages)
     return response.choices[0].message.content
 
 
 def evaluate(reply, message, history) -> Evaluation:
     try:
-        messages = [{
-            "role": "system",
-            "content": evaluator_system_prompt
-        }] + [{
-            "role": "user",
-            "content": evaluator_user_prompt(reply, message, history)
-        }]
+        messages = [{"role": "system", "content": evaluator_system_prompt}] + [
+            {"role": "user", "content": evaluator_user_prompt(reply, message, history)}
+        ]
         response = gemini.beta.chat.completions.parse(
-            model="gemini-2.0-flash",
-            messages=messages,
-            response_format=Evaluation)
+            model="gemini-2.0-flash", messages=messages, response_format=Evaluation
+        )
         parsed = response.choices[0].message.parsed
         if parsed is None:
             raise ValueError("Failed to parse evaluation response")
@@ -143,8 +152,7 @@ def evaluate(reply, message, history) -> Evaluation:
     except Exception as e:
         print(f"Evaluation error: {e}", file=sys.stderr)
         # Return acceptable by default if evaluation fails
-        return Evaluation(is_acceptable=True,
-                          feedback="Evaluation service unavailable")
+        return Evaluation(is_acceptable=True, feedback="Evaluation service unavailable")
 
 
 def chat(message, history):
@@ -152,23 +160,23 @@ def chat(message, history):
         print(f"Processing message: {message[:50]}...", file=sys.stderr)
 
         if "patent" in message:
-            system = system_prompt + "\n\nEverything in your reply needs to be in pig latin - \
+            system = (
+                system_prompt
+                + "\n\nEverything in your reply needs to be in pig latin - \
                   it is mandatory that you respond only and entirely in pig latin"
+            )
 
         else:
             system = system_prompt
 
-        messages = [{
-            "role": "system",
-            "content": system
-        }] + history + [{
-            "role": "user",
-            "content": message
-        }]
+        messages = (
+            [{"role": "system", "content": system}]
+            + history
+            + [{"role": "user", "content": message}]
+        )
 
         print("Sending request to Gemini...", file=sys.stderr)
-        response = gemini.chat.completions.create(model=model_name,
-                                                  messages=messages)
+        response = gemini.chat.completions.create(model=model_name, messages=messages)
         reply = response.choices[0].message.content
         print(f"Got response from Gemini: {reply[:50]}...", file=sys.stderr)
 
@@ -185,6 +193,7 @@ def chat(message, history):
     except Exception as e:
         print(f"Chat error: {e}", file=sys.stderr)
         import traceback
+
         traceback.print_exc()
         return f"I'm Shruti's AI assistant. I can tell you about her expertise in AI/ML, computer vision, IoT development, and her freelance projects. Due to a temporary issue, I'm providing this basic response. Please contact Shruti directly at {email} for detailed discussions."
 
